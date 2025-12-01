@@ -23,7 +23,7 @@
 - b5957c1: feat: 초기 코드
 - Updated dependencies [0416615]
 - Updated dependencies [cd75c60]
-  - @csh/ui@0.1.0
+  - @choscion/ui@0.1.0
 
 ## 0.1.1
 
