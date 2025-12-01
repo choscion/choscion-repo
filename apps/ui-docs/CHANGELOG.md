@@ -9,7 +9,7 @@
 ### Patch Changes
 
 - Updated dependencies [b930c96]
-  - @chosicon/ui@1.0.0
+  - @choscion/ui@1.0.0
 
 ## 0.2.0
 
@@ -31,4 +31,4 @@
 
 - ac12fc4: Initialize
 - Updated dependencies [ac12fc4]
-  - @chosicon/ui@0.0.1
+  - @choscion/ui@0.0.1
