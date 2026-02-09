@@ -1,0 +1,33 @@
+.toast {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--grey900);
+  color: var(--whiteLevel01);
+  box-shadow: var(--adaptiveShadowMedium01);
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 220px;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.description {
+  font-size: 13px;
+  color: var(--grey100);
+}
+
+.tone-success {
+  background: var(--green500);
+}
+
+.tone-warning {
+  background: var(--yellow500);
+  color: var(--grey900);
+}
+
+.tone-error {
+  background: var(--red500);
+}

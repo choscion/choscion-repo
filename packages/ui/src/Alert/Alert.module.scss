@@ -1,0 +1,34 @@
+.alert {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--grey50);
+  color: var(--grey900);
+  border: 1px solid var(--grey200);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.description {
+  font-size: 13px;
+  color: var(--grey700);
+}
+
+.tone-success {
+  background: var(--green50);
+  border-color: var(--green200);
+}
+
+.tone-warning {
+  background: var(--yellow50);
+  border-color: var(--yellow200);
+}
+
+.tone-error {
+  background: var(--red50);
+  border-color: var(--red200);
+}

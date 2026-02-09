@@ -17,7 +17,7 @@ export interface TextProps extends HTMLAttributes<HTMLDivElement> {
   inline?: boolean
 }
 
-export function Text({ children, color = "grey900", size = "t3", bold = false, inline = false, ...props }: TextProps = {}) {
+export function Text({ children, color, size = "t3", bold = false, inline = false, ...props }: TextProps = {}) {
   if (typeof children !== "string") {
     // ?
     return (
@@ -49,7 +49,7 @@ export function Text({ children, color = "grey900", size = "t3", bold = false, i
       }}
       {...props}
     >
-      {children.split("\\n").map((text: string, idx: number) => (
+      {children.split("\n").map((text: string, idx: number) => (
         <Fragment key={idx}>
           {text}
           <br />
