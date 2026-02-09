@@ -20,32 +20,14 @@ type MultiLineProps = BaseProps & Omit<TextareaHTMLAttributes<HTMLTextAreaElemen
 export type InputProps = SingleLineProps | MultiLineProps
 
 export function Input(props: InputProps = {}) {
-  const {
-    label,
-    helperText,
-    error = false,
-    size = "medium",
-    className,
-    id,
-    disabled,
-    multiline,
-    showSearchIcon,
-    ...rest
-  } = props
+  const { label, helperText, error = false, size = "medium", className, id, disabled, multiline, showSearchIcon, ...rest } = props
   const autoId = useId()
   const inputId = id ?? autoId
 
   let control: React.ReactNode
 
   if (multiline) {
-    control = (
-      <textarea
-        id={inputId}
-        className={cx("input")}
-        disabled={disabled}
-        {...(rest as TextareaHTMLAttributes<HTMLTextAreaElement>)}
-      />
-    )
+    control = <textarea id={inputId} className={cx("input")} disabled={disabled} {...(rest as TextareaHTMLAttributes<HTMLTextAreaElement>)} />
   } else {
     const { type = "text", ...inputProps } = rest as InputHTMLAttributes<HTMLInputElement>
     const shouldShowSearchIcon = (showSearchIcon ?? type === "search") === true
@@ -58,13 +40,7 @@ export function Input(props: InputProps = {}) {
             </svg>
           </span>
         ) : null}
-        <input
-          id={inputId}
-          className={cx("input", { "with-icon": shouldShowSearchIcon })}
-          type={type}
-          disabled={disabled}
-          {...inputProps}
-        />
+        <input id={inputId} className={cx("input", { "with-icon": shouldShowSearchIcon })} type={type} disabled={disabled} {...inputProps} />
       </div>
     )
   }

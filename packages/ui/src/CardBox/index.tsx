@@ -10,12 +10,7 @@ export interface CardBoxProps extends HTMLAttributes<HTMLDivElement> {
   padding?: "small" | "medium" | "large"
 }
 
-export function CardBox({
-  variant = "elevated",
-  padding = "medium",
-  className,
-  ...props
-}: CardBoxProps = {}) {
+export function CardBox({ variant = "elevated", padding = "medium", className, ...props }: CardBoxProps = {}) {
   return (
     <div
       className={cx("card", className, {

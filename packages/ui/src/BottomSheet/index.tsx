@@ -12,15 +12,7 @@ export interface BottomSheetProps extends HTMLAttributes<HTMLDivElement> {
   onClose?: () => void
 }
 
-export function BottomSheet({
-  open = false,
-  title,
-  footer,
-  onClose,
-  className,
-  children,
-  ...props
-}: BottomSheetProps = {}) {
+export function BottomSheet({ open = false, title, footer, onClose, className, children, ...props }: BottomSheetProps = {}) {
   if (!open) return null
 
   return (

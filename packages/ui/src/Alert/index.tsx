@@ -11,14 +11,7 @@ export interface AlertProps extends HTMLAttributes<HTMLDivElement> {
   description?: React.ReactNode
 }
 
-export function Alert({
-  tone = "info",
-  title,
-  description,
-  className,
-  children,
-  ...props
-}: AlertProps = {}) {
+export function Alert({ tone = "info", title, description, className, children, ...props }: AlertProps = {}) {
   return (
     <div
       className={cx("alert", className, {

@@ -1,5 +1,5 @@
-import { CardBox } from "."
 import { Text } from "../Text"
+import { CardBox } from "."
 
 export default {
   title: "base/CardBox",
