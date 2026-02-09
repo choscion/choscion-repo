@@ -1,5 +1,15 @@
 # @choscion/ui
 
+## 2.0.0
+
+### Major Changes
+
+- ca9966a: Add common components
+
+### Minor Changes
+
+- b50c5ae: 소량
+
 ## 1.1.0
 
 ### Minor Changes
