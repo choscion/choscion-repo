@@ -1,5 +1,5 @@
-import { Tooltip } from "."
 import { Button } from "../Button"
+import { Tooltip } from "."
 
 export default {
   title: "base/Tooltip",

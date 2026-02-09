@@ -12,15 +12,7 @@ export interface SkeletonProps extends HTMLAttributes<HTMLDivElement> {
   variant?: "text" | "rect" | "circle"
 }
 
-export function Skeleton({
-  width,
-  height,
-  radius,
-  variant = "text",
-  className,
-  style,
-  ...props
-}: SkeletonProps = {}) {
+export function Skeleton({ width, height, radius, variant = "text", className, style, ...props }: SkeletonProps = {}) {
   return (
     <div
       className={cx("skeleton", className, {

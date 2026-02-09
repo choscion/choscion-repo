@@ -1,7 +1,8 @@
 import { useState } from "react"
+
 import { Button } from "../Button"
-import { Modal } from "."
 import { Text } from "../Text"
+import { Modal } from "."
 
 export default {
   title: "base/Modal",

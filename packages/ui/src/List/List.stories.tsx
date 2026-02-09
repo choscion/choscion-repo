@@ -1,5 +1,5 @@
-import { List, ListItem } from "."
 import { Text } from "../Text"
+import { List, ListItem } from "."
 
 export default {
   title: "base/List",

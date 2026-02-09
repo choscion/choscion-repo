@@ -11,14 +11,7 @@ export interface ToastProps extends HTMLAttributes<HTMLDivElement> {
   description?: React.ReactNode
 }
 
-export function Toast({
-  tone = "info",
-  title,
-  description,
-  className,
-  children,
-  ...props
-}: ToastProps = {}) {
+export function Toast({ tone = "info", title, description, className, children, ...props }: ToastProps = {}) {
   return (
     <div
       className={cx("toast", className, {

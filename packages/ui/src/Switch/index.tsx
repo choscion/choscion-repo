@@ -12,14 +12,7 @@ export interface SwitchProps extends Omit<InputHTMLAttributes<HTMLInputElement>,
   size?: "small" | "medium" | "large"
 }
 
-export function Switch({
-  label,
-  color = "blue500",
-  size = "medium",
-  className,
-  disabled,
-  ...props
-}: SwitchProps = {}) {
+export function Switch({ label, color = "blue500", size = "medium", className, disabled, ...props }: SwitchProps = {}) {
   return (
     <label
       className={cx("switch", className, {
