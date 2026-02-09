@@ -1,0 +1,53 @@
+.tooltip {
+  position: relative;
+  display: inline-flex;
+}
+
+.trigger {
+  display: inline-flex;
+}
+
+.bubble {
+  position: absolute;
+  z-index: 10;
+  background: var(--grey900);
+  color: var(--whiteLevel01);
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.tooltip:hover .bubble,
+.tooltip:focus-within .bubble {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.placement-top {
+  bottom: 100%;
+  left: 50%;
+  transform: translate(-50%, -6px);
+}
+
+.placement-bottom {
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, 6px);
+}
+
+.placement-left {
+  right: 100%;
+  top: 50%;
+  transform: translate(-6px, -50%);
+}
+
+.placement-right {
+  left: 100%;
+  top: 50%;
+  transform: translate(6px, -50%);
+}

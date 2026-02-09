@@ -1,0 +1,134 @@
+@use "sass:color";
+@use "sass:meta";
+@use "../styles/variables" as *;
+
+@function preferred-foreground($bg) {
+  @if meta.type-of($bg) == "color" {
+    @return if(color.channel($bg, "lightness", $space: hsl) > 70, var(--grey900), var(--whiteLevel01));
+  }
+
+  @return var(--whiteLevel01);
+}
+
+@function hover-surface($bg) {
+  @if meta.type-of($bg) == "color" {
+    @return color.mix(#000000, $bg, 8%);
+  }
+
+  @return $bg;
+}
+
+@function can-paint($value) {
+  @return meta.type-of($value) == "color" or meta.type-of($value) == "string";
+}
+
+// Ensure specific colors can override auto-contrast text when needed.
+$button-text-overrides: (
+  blue500: var(--whiteLevel01),
+);
+
+@mixin generate-button-tokens($map) {
+  @each $name, $value in $map {
+    $paintable: can-paint($value);
+    $bg: if($paintable, var(--#{$name}), transparent);
+    $hover: if($paintable, hover-surface($value), transparent);
+    $text: if(
+      map-has-key($button-text-overrides, $name),
+      map-get($button-text-overrides, $name),
+      if($paintable, preferred-foreground($value), var(--grey900))
+    );
+
+    .button.color-#{$name} {
+      --btn-bg: #{$bg};
+      --btn-border: #{$bg};
+      --btn-hover-bg: #{$hover};
+      --btn-text: #{$text};
+      --btn-hover-text: #{$text};
+    }
+  }
+}
+
+.button {
+  --btn-bg: var(--blue500);
+  --btn-border: var(--blue500);
+  --btn-hover-bg: var(--blue600);
+  --btn-text: var(--whiteLevel01);
+  --btn-hover-text: var(--whiteLevel01);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-weight: 600;
+  line-height: 1.2;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &.size-small {
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 6px;
+  }
+
+  &.size-medium {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+  }
+
+  &.size-large {
+    padding: 14px 28px;
+    font-size: 18px;
+    border-radius: 10px;
+  }
+
+  &.shape-solid {
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    border-color: var(--btn-border);
+
+    // If a child (e.g. Text) applies a color-* class, keep it inheriting the button text color.
+    :global([class^="color-"]),
+    :global([class*=" color-"]) {
+      color: inherit;
+    }
+
+    &:hover {
+      background: var(--btn-hover-bg);
+      color: var(--btn-hover-text);
+    }
+  }
+
+  &.shape-lined {
+    background: transparent;
+    color: var(--btn-border);
+    border-color: var(--btn-border);
+
+    &:hover {
+      background: var(--btn-hover-bg);
+      color: var(--btn-hover-text);
+    }
+  }
+
+  &.shape-ghost {
+    background: transparent;
+    color: var(--btn-border);
+    border-color: transparent;
+
+    &:hover {
+      background: var(--btn-hover-bg);
+      color: var(--btn-hover-text);
+    }
+  }
+
+  &.shape-circular {
+    border-radius: 999px;
+  }
+}
+
+@include generate-button-tokens($light-colors);
+
+@media (prefers-color-scheme: dark) {
+  @include generate-button-tokens($dark-colors);
+}

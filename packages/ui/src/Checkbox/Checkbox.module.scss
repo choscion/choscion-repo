@@ -1,0 +1,111 @@
+@use "../styles/variables" as *;
+
+@mixin generate-control-tokens($map) {
+  @each $name, $value in $map {
+    .color-#{$name} {
+      --control-accent: var(--#{$name});
+    }
+  }
+}
+
+.checkbox {
+  --control-accent: var(--blue500);
+  --control-border: var(--grey300);
+  --control-bg: var(--whiteLevel01);
+  --control-text: var(--grey900);
+  --control-size: 16px;
+  --control-check-width: 8px;
+  --control-check-height: 4px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: var(--control-text);
+}
+
+.input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--control-size);
+  height: var(--control-size);
+  border: 1px solid var(--control-border);
+  border-radius: 4px;
+  background: var(--control-bg);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+
+  &::after {
+    content: "";
+    width: var(--control-check-width);
+    height: var(--control-check-height);
+    border-left: 2px solid var(--whiteLevel01);
+    border-bottom: 2px solid var(--whiteLevel01);
+    transform: rotate(-45deg);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+}
+
+.input:checked + .box {
+  background: var(--control-accent);
+  border-color: var(--control-accent);
+}
+
+.input:checked + .box::after {
+  opacity: 1;
+}
+
+.input:focus-visible + .box {
+  outline: 2px solid var(--blue200);
+  outline-offset: 2px;
+}
+
+.input:disabled + .box {
+  background: var(--grey100);
+  border-color: var(--grey200);
+}
+
+.input:disabled ~ .label {
+  color: var(--grey500);
+}
+
+.label {
+  line-height: 1.2;
+}
+
+.size-small {
+  --control-size: 14px;
+  --control-check-width: 7px;
+  --control-check-height: 3px;
+  font-size: 12px;
+}
+
+.size-medium {
+  font-size: 14px;
+}
+
+.size-large {
+  --control-size: 18px;
+  --control-check-width: 9px;
+  --control-check-height: 5px;
+  font-size: 16px;
+}
+
+.disabled {
+  cursor: default;
+  opacity: 0.7;
+}
+
+@include generate-control-tokens($light-colors);
+
+@media (prefers-color-scheme: dark) {
+  @include generate-control-tokens($dark-colors);
+}
