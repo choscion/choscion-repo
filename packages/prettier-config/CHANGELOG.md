@@ -1,5 +1,15 @@
 # @choscion/prettier-config
 
+## 1.2.0
+
+### Minor Changes
+
+- b50c5ae: 소량
+
+### Patch Changes
+
+- ca9966a: Add common components
+
 ## 1.1.0
 
 ### Minor Changes
