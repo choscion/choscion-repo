@@ -1,5 +1,11 @@
 # @choscion/eslint-config
 
+## 1.2.1
+
+### Patch Changes
+
+- 3b08d58: 사소한 수정들
+
 ## 1.2.0
 
 ### Minor Changes
