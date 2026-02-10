@@ -19,5 +19,11 @@ node_modules/
 
 # build file
 dist
+.next/
+out/
+*.tsbuildinfo
 
 .DS_Store
+
+#rebuild_repo.sh
+#CODEX_RULES.md

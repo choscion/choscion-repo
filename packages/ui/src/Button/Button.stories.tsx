@@ -1,6 +1,5 @@
 import { colors } from "../Colors"
 import { Text } from "../Text"
-//import type { ButtonProps } from "."
 import { Button } from "."
 
 const colorOptions = Object.keys(colors)
