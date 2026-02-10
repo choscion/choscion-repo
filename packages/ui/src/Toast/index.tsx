@@ -5,7 +5,7 @@ import styles from "./Toast.module.scss"
 
 const cx = classNames.bind(styles)
 
-export interface ToastProps extends HTMLAttributes<HTMLDivElement> {
+export interface ToastProps extends Omit<HTMLAttributes<HTMLDivElement>, "title"> {
   tone?: "info" | "success" | "warning" | "error"
   title?: React.ReactNode
   description?: React.ReactNode

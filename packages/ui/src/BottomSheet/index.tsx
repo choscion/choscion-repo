@@ -5,7 +5,7 @@ import styles from "./BottomSheet.module.scss"
 
 const cx = classNames.bind(styles)
 
-export interface BottomSheetProps extends HTMLAttributes<HTMLDivElement> {
+export interface BottomSheetProps extends Omit<HTMLAttributes<HTMLDivElement>, "title" | "onClose"> {
   open?: boolean
   title?: React.ReactNode
   footer?: React.ReactNode

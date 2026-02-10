@@ -5,7 +5,7 @@ import styles from "./Tooltip.module.scss"
 
 const cx = classNames.bind(styles)
 
-export interface TooltipProps extends HTMLAttributes<HTMLSpanElement> {
+export interface TooltipProps extends Omit<HTMLAttributes<HTMLSpanElement>, "content"> {
   content: React.ReactNode
   placement?: "top" | "bottom" | "left" | "right"
 }

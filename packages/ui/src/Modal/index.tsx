@@ -5,7 +5,7 @@ import styles from "./Modal.module.scss"
 
 const cx = classNames.bind(styles)
 
-export interface ModalProps extends HTMLAttributes<HTMLDivElement> {
+export interface ModalProps extends Omit<HTMLAttributes<HTMLDivElement>, "title"> {
   open?: boolean
   title?: React.ReactNode
   footer?: React.ReactNode

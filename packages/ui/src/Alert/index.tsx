@@ -5,7 +5,7 @@ import styles from "./Alert.module.scss"
 
 const cx = classNames.bind(styles)
 
-export interface AlertProps extends HTMLAttributes<HTMLDivElement> {
+export interface AlertProps extends Omit<HTMLAttributes<HTMLDivElement>, "title"> {
   tone?: "info" | "success" | "warning" | "error"
   title?: React.ReactNode
   description?: React.ReactNode
