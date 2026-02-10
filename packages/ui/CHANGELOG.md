@@ -1,5 +1,11 @@
 # @choscion/ui
 
+## 2.0.1
+
+### Patch Changes
+
+- 3b08d58: 사소한 수정들
+
 ## 2.0.0
 
 ### Major Changes
